@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+    <br><br>
+    <div class="col-md-6 offset-md-3">
+        <h1>Customer Record: </h1>
+        <div class="card">
+            <div class="card-header">
+                #{{cust_r.client_first_name}}
+                {{cust_r.client_last_name}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Custome Info</h5>
+              <hr>
+
+              <p class="card-text">
+               <strong>Email: </strong>{{cust_r.email}}<br>
+               <br>
+               <strong>Phone: </strong>{{cust_r.phone}}<br>
+               <br>
+               <strong>City: </strong>{{cust_r.state}}<br>
+               <br>
+               <strong>Create At: </strong>{{cust_r.create_at}}<br>
+               <br>
+               <strong>ID: </strong>{{cust_r.id}}<br>
+               <hr>
+              </p>
+            </div>
+            <br>
+        </div>
+        <br>
+        <a href="{% url 'dashborad' %}" class="btn btn-primary">Back to primary dashborad</a>
+        <a href="{% url 'update_dashboradR' cust_r.id %}" class="btn btn-primary">Update </a>
+        <a href="{% url 'delete_dashboradR' cust_r.id %}" class="btn btn-danger">Delete </a>
+    </div>
+</body>
+</html>
+{% endblock content %}

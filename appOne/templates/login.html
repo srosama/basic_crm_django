@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<body style="background-color: rgb(238, 238, 238);">
+
+    {% if user.is_authenticated %}
+    <h1><a href="{% url 'dashborad' %}">Go To The DashBoadr</a></h1>
+    {% else %}
+        <br>
+    <div class="col-md-6 offset-md-3">
+        <h1 style="text-align: center;">Login</h1>
+        <form method="post" style="padding: 30px;"> {% csrf_token%}
+            <div class="form-group">
+                <label>username</label>
+                <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter username" name="username" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password" required>
+            </div>
+            <br>
+            <button style="width:660px;" type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+        
+    {% endif %}
+</body>
+</html>
+{% endblock content %}

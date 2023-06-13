@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+    <br><br>
+    {% if user.is_authenticated %}
+    <div class="col-md-6 offset-md-3">
+        <h1>Hello ({{user}})</h1>
+        <p>Start Working and manging your Cutomers 👇</p>
+        <p><a href="{% url 'dashborad' %}">View dashborad</a></p>
+    </div>
+    {% else %}
+        <h1 style="text-align: center;">Welcom To The Best CRM Tool</h1>
+        <p style="text-align: center;">Best CRM tool to conteal your clints and speed the process</p>
+        <p style="text-align: center;">Go To <a href="singup/">Singup</a> To Start</p>
+        <p style="text-align: center;">Or <a href="login/">Login</a> To Start</p>
+    {% endif %}
+</body>
+</html>
+{% endblock content %}

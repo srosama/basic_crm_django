@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+
+    <style>
+        #a_back{
+        position: relative; bottom: 30px; left: 280px; 
+        background-color: none !important; 
+        color: black;
+        background-color: none !important;
+        background: none !important;
+        text-decoration: none;
+        font-size: 20px;
+        border: red 1.5px solid;
+        opacity: 0.9;
+        border-radius: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+
+        #a_back:hover{
+            background-color: rgb(178, 0, 0) !important;
+            transition: all ease 0.5s;
+            color: white;
+        }
+        
+    </style>
+    <button  type="submit" class="btn" id="bot"><a href="{% url 'dashborad' %}" id="a_back"><<</a></button>
+    <div class="col-md-6 offset-md-3">
+        <h1>Update Cutomers</h1>
+        <form method="post" style="padding: 30px;"> {% csrf_token%}
+            {{form.as_p}}
+            <button style="width:660px;" type="submit" class="btn btn-primary">Uodate Cutomer</button>
+            <br><br>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}

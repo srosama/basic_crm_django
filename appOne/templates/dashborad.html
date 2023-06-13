@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+<body style="background-color: rgb(238, 238, 238);">
+        <br><br>
+        <div class="container" style="padding: 30px;">
+            <h1>Mange You Crm</h1>
+            <br>
+            <button class="button-57" role="button"><span class="text">Create +</span><span><a href="{% url 'add_dashboradR' %}">+</a></span>+</button>
+            <br> <br>
+            <table class="table table-striped table-hover table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">City</th>
+                <th scope="col">Create At</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% if record%}
+            {% for record in record%}
+                <tr>
+                    <td>{{record.client_first_name}}</td>
+                    <td>{{record.client_last_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.phone}}</td>
+                    <td>{{record.state}}</td>
+                    <td>{{record.create_at}}</td>
+                    <td><a href="{% url 'dashboradR' record.id %}">{{record.id}}</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </table>
+        <br>
+</body>
+</html>
+{% endblock content %}
+
